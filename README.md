@@ -12,3 +12,11 @@ Aula 01 - 03/01/2022
 8- Criação da estrutura do projeto (Pastas e elementos necessarios)
 9- Criação da conexão com o banco de dados
 10- Commit para o Git
+
+Aula 02 - 04/01/2022
+1- Correção no relacionamento do banco de dados [Produto - Estoque]
+2- Criação da tela de login do sistema
+3- Desenvolvimento do CRUD para a tabela atendente 
+4- Integração da tabela atendente com o login do sistema
+5- Desenvolvimento do CRUD da tabela cliente
+6- Desenvolvimento do CRUD da tabela fornecedor

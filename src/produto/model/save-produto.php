@@ -1,7 +1,4 @@
-
-
-
-    <?php
+<?php
 
     // Obter a nossa conexão com o banco de dados
     include('../../conexao/conn.php');
@@ -10,7 +7,7 @@
     $requestData = $_REQUEST;
 
     // Verificação de campo obrigatórios do formulário
-    if(empty($requestData['LOGIN'])){
+    if(empty($requestData['NOME'])){
         // Caso a variável venha vazia eu gero um retorno de erro do mesmo
         $dados = array(
             "tipo" => 'error',
@@ -25,11 +22,14 @@
         if($operacao == 'insert'){
             // Prepara o comando INSERT para ser executado
             try{
-                $stmt = $pdo->prepare('INSERT INTO ATENDENTE (NOME, LOGIN, SENHA) VALUES (:a, :b, :c)');
+                $stmt = $pdo->prepare('INSERT INTO PRODUTO (CODIGOBARRAS, NOME, MARCA, VLRCOMPRA, VLRVENDA, FORNECEDOR_ID) VALUES (:a, :b, :c, :d, :e, :f)');
                 $stmt->execute(array(
-                    ':a' => utf8_decode($requestData['NOME']),
-                    ':b' => utf8_decode($requestData['LOGIN']),
-                    ':c' => md5($requestData['SENHA'])
+                    ':a' => $requestData['CODIGOBARRAS'],
+                    ':b' => utf8_decode($requestData['NOME']),
+                    ':c' => utf8_decode($requestData['MARCA']),
+                    ':d' => $requestData['VLRCOMPRA'],
+                    ':e' => $requestData['VLRVENDA'],
+                    ':f' => $requestData['FORNECEDOR_ID']
                 ));
                 $dados = array(
                     "tipo" => 'success',
@@ -44,12 +44,15 @@
         } else {
             // Se minha variável operação estiver vazia então devo gerar os scripts de update
             try{
-                $stmt = $pdo->prepare('UPDATE ATENDENTE SET NOME = :a, LOGIN = :b, SENHA = :c WHERE ID = :id');
+                $stmt = $pdo->prepare('UPDATE PRODUTO SET CODIGOBARRAS = :a, NOME = :b, MARCA = :c, VLRCOMPRA = :d, VLRVENDA = :e, FORNECEDOR_ID = :f WHERE ID = :id');
                 $stmt->execute(array(
                     ':id' => $ID,
-                    ':a' => utf8_decode($requestData['NOME']),
-                    ':b' => utf8_decode($requestData['LOGIN']),
-                    ':c' => md5($requestData['SENHA'])
+                    ':a' => $requestData['CODIGOBARRAS'],
+                    ':b' => utf8_decode($requestData['NOME']),
+                    ':c' => utf8_decode($requestData['MARCA']),
+                    ':d' => $requestData['VLRCOMPRA'],
+                    ':e' => $requestData['VLRVENDA'],
+                    ':f' => $requestData['FORNECEDOR_ID']
                 ));
                 $dados = array(
                     "tipo" => 'success',

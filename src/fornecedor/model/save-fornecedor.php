@@ -1,7 +1,4 @@
-
-
-
-    <?php
+<?php
 
     // Obter a nossa conexão com o banco de dados
     include('../../conexao/conn.php');
@@ -10,7 +7,7 @@
     $requestData = $_REQUEST;
 
     // Verificação de campo obrigatórios do formulário
-    if(empty($requestData['LOGIN'])){
+    if(empty($requestData['NOME'])){
         // Caso a variável venha vazia eu gero um retorno de erro do mesmo
         $dados = array(
             "tipo" => 'error',
@@ -25,11 +22,18 @@
         if($operacao == 'insert'){
             // Prepara o comando INSERT para ser executado
             try{
-                $stmt = $pdo->prepare('INSERT INTO ATENDENTE (NOME, LOGIN, SENHA) VALUES (:a, :b, :c)');
+                $stmt = $pdo->prepare('INSERT INTO FORNECEDOR (NOME, CNPJ, IESTADUAL, CEP, NUMERO, LOGRADOURO, BAIRRO, CIDADE, UF, TELEFONE) VALUES (:a, :b, :c, :d, :e, :f, :g, :h, :i, :j)');
                 $stmt->execute(array(
                     ':a' => utf8_decode($requestData['NOME']),
-                    ':b' => utf8_decode($requestData['LOGIN']),
-                    ':c' => md5($requestData['SENHA'])
+                    ':b' => md5($requestData['CNPJ']),
+                    ':c' => md5($requestData['IESTADUAL']),
+                    ':d' => $requestData['CEP'],
+                    ':e' => $requestData['NUMERO'],
+                    ':f' => utf8_decode($requestData['LOGRADOURO']),
+                    ':g' => utf8_decode($requestData['BAIRRO']),
+                    ':h' => utf8_decode($requestData['CIDADE']),
+                    ':i' => $requestData['UF'],
+                    ':j' => $requestData['TELEFONE']
                 ));
                 $dados = array(
                     "tipo" => 'success',
@@ -44,12 +48,19 @@
         } else {
             // Se minha variável operação estiver vazia então devo gerar os scripts de update
             try{
-                $stmt = $pdo->prepare('UPDATE ATENDENTE SET NOME = :a, LOGIN = :b, SENHA = :c WHERE ID = :id');
+                $stmt = $pdo->prepare('UPDATE FORNECEDOR SET NOME = :a, CNPJ = :b, IESTADUAL = :c, CEP = :d, NUMERO = :e, LOGRADOURO = :f, BAIRRO = :g, CIDADE = :h, UF = :i, TELEFONE = :j WHERE ID = :id');
                 $stmt->execute(array(
                     ':id' => $ID,
                     ':a' => utf8_decode($requestData['NOME']),
-                    ':b' => utf8_decode($requestData['LOGIN']),
-                    ':c' => md5($requestData['SENHA'])
+                    ':b' => md5($requestData['CNPJ']),
+                    ':c' => md5($requestData['IESTADUAL']),
+                    ':d' => $requestData['CEP'],
+                    ':e' => $requestData['NUMERO'],
+                    ':f' => utf8_decode($requestData['LOGRADOURO']),
+                    ':g' => utf8_decode($requestData['BAIRRO']),
+                    ':h' => utf8_decode($requestData['CIDADE']),
+                    ':i' => $requestData['UF'],
+                    ':j' => $requestData['TELEFONE']
                 ));
                 $dados = array(
                     "tipo" => 'success',

@@ -1,7 +1,7 @@
 # intensivão full stack 2022-Lara
 Repositório voltado ao gerenciamento de projeto e deposito dos códigos do projeto.
 
-Aula 01 - 03/01/2022
+# Aula 01 - 03/01/2022
 1- Introdução e explicações iniciais;
 2- Configuração do ambiente de desnvolvimento VSCODE
 3- Criação do ambiente de repositorio de arquivos e gestão do projeto
@@ -13,10 +13,18 @@ Aula 01 - 03/01/2022
 9- Criação da conexão com o banco de dados
 10- Commit para o Git
 
-Aula 02 - 04/01/2022
+# Aula 02 - 04/01/2022
 1- Correção no relacionamento do banco de dados [Produto - Estoque]
 2- Criação da tela de login do sistema
 3- Desenvolvimento do CRUD para a tabela atendente 
 4- Integração da tabela atendente com o login do sistema
 5- Desenvolvimento do CRUD da tabela cliente
 6- Desenvolvimento do CRUD da tabela fornecedor
+
+# Aula 03 - 05/01/2022
+1- Demonstração da correção de erro do banco de dados 
+2- Finalização do CRUD para a tabela atendente
+3- Desenvolvimento do CRUD da tabela atendente
+4- Desenvolvimento do CRUD da tabela fornecedor
+5- Desenvolvimento do CRUD da tabela produto
+6- Desenvolvimento do CRUD da tabela estoque

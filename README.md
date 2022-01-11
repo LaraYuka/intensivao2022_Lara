@@ -28,3 +28,7 @@ Repositório voltado ao gerenciamento de projeto e deposito dos códigos do proj
 4- Desenvolvimento do CRUD da tabela fornecedor
 5- Desenvolvimento do CRUD da tabela produto
 6- Desenvolvimento do CRUD da tabela estoque
+
+# Aula 04 - 06/01/2022
+1- Finalização do CRUD para a tabela PRODUTO
+2- Desenvolvimento do CRUD da tabela COMPRA
